@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 networks:
   laravel:
@@ -68,9 +68,9 @@ services:
     depends_on:
       - php
     user: laravel
+    entrypoint: ["composer", "--ignore-platform-reqs"]
     networks:
       - laravel
-    entrypoint: ['composer', '--ignore-platform-reqs']
 
   npm:
     image: node:13.7
@@ -78,7 +78,9 @@ services:
     volumes:
       - ./src:/var/www/html
     working_dir: /var/www/html
-    entrypoint: ['npm']
+    entrypoint: ["npm"]
+    networks:
+      - laravel
 
   artisan:
     build:
@@ -91,7 +93,7 @@ services:
       - mysql
     working_dir: /var/www/html
     user: laravel
-    entrypoint: ['php', '/var/www/html/artisan']
+    entrypoint: ["php", "/var/www/html/artisan"]
     networks:
       - laravel
 
