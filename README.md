@@ -18,10 +18,12 @@ Bringing up the Docker Compose network with `site` instead of just using `up`, e
 - **php** - `:9000`
 - **mailhog** - `:8025`
 
-Three additional containers are included that handle Composer, NPM, and Artisan commands _without_ having to have these platforms installed on your local computer. Use the following command examples from your project root, modifying them to fit your particular use case.
+Three additional containers are included that handle Composer, NPM, NPX, and Artisan commands _without_ having to have these platforms installed on your local computer. Use the following command examples from your project root, modifying them to fit your particular use case.
 
 - `docker-compose run --rm composer update`
 - `docker-compose run --rm npm run dev`
+- `docker-compose run --rm npm install -D tailwindcss@latest ...`
+- `docker-compose run --rm npx tailwindcss init`
 - `docker-compose run --rm artisan migrate`
 
 ## Persistent MySQL Storage

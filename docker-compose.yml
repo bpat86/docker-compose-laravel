@@ -82,6 +82,16 @@ services:
     networks:
       - laravel
 
+  npx:
+    image: node:13.7
+    container_name: npx
+    volumes:
+      - ./src:/var/www/html
+    working_dir: /var/www/html
+    entrypoint: ["npx"]
+    networks:
+      - laravel
+
   artisan:
     build:
       context: .
